@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "978681782731",
+    "firebase_url": "https://kiestcho-19a2b.firebaseio.com",
+    "project_id": "kiestcho-19a2b",
+    "storage_bucket": "kiestcho-19a2b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:978681782731:android:86c0ecc1cb3df7bfd8964e",
+        "android_client_info": {
+          "package_name": "com.example.projetmulti"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "978681782731-o1eq1dn45r5o529uqrhls3re1tbgtrho.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYniKnU4oNVRIQ2Y8_zOqF--ZKd-_SeRI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "978681782731-o1eq1dn45r5o529uqrhls3re1tbgtrho.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
