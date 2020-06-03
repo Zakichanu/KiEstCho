@@ -15,17 +15,41 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 public class Authentification extends AppCompatActivity {
     private MaterialEditText email, mdp;
     private Button btn_inscription, btn_auth;
 
+    // Authentification permettant la connexion
     private FirebaseAuth auth;
+
+    // Variable permettant de savoir si on s'est déjà connecté auparavant
+    private FirebaseUser useractuel;
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        useractuel = FirebaseAuth.getInstance().getCurrentUser();
+
+
+        // Condition permettant la connexion automatique
+        if(useractuel != null){
+            Intent intent = new Intent(Authentification.this, Accueil_test.class);
+            startActivity(intent);
+            finish();
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_authentification);
+
+
         btn_inscription = findViewById(R.id.inscription);
         email = findViewById(R.id.mail);
         mdp = findViewById(R.id.mdp);
@@ -36,7 +60,6 @@ public class Authentification extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Connexion");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         btn_inscription.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,7 +83,7 @@ public class Authentification extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
-                                Intent intent = new Intent(Authentification.this, Accueil.class);
+                                Intent intent = new Intent(Authentification.this, Accueil_test.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intent);
                                 finish();
