@@ -9,7 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Accueil_test"></activity>
+        <activity android:name=".Parametre_Profil"></activity>
+        <activity
+            android:name=".MesParametres"
+            android:label="@string/title_activity_mes_parametres" />
+        <activity
+            android:name=".MonProfil"
+            android:label="@string/title_activity_profil"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Accueil_test" />
         <activity android:name=".Accueil" />
         <activity android:name=".Inscription" />
         <activity android:name=".Authentification">

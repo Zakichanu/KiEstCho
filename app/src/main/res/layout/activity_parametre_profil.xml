@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Parametre_Profil">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/pdp"
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
+
+            <TextView
+                android:id="@+id/pseudonyme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="668dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="16dp"
+            tools:layout_editor_absoluteX="-17dp"
+            tools:layout_editor_absoluteY="96dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Modifiez vos informations"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/infoperso"
+                android:layout_width="match_parent"
+                android:layout_height="87dp"
+                android:layout_marginTop="10dp"
+                android:hint="Informations Personnelles"
+                android:outlineAmbientShadowColor="@color/colorPrimary"
+                app:met_floatingLabel="normal" />
+
+            <View
+                android:layout_width="250dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="20dp"
+                android:background="@android:color/darker_gray" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/comp1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Compétences 1"
+                android:outlineAmbientShadowColor="@color/colorPrimary"
+                app:met_floatingLabel="normal" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/desc_comp1"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_marginTop="10dp"
+                android:hint="Description"
+                android:outlineAmbientShadowColor="@color/colorPrimary"
+                app:met_floatingLabel="normal" />
+
+            <View
+                android:layout_width="250dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="20dp"
+                android:background="@android:color/darker_gray" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/comp2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Compétence 2"
+                android:outlineAmbientShadowColor="@color/colorPrimary"
+                app:met_floatingLabel="normal" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/desc_comp2"
+                android:layout_width="match_parent"
+                android:layout_height="78dp"
+                android:layout_marginTop="10dp"
+                android:hint="Description"
+                android:outlineAmbientShadowColor="@color/colorPrimary"
+                app:met_floatingLabel="normal" />
+
+            <View
+                android:layout_width="250dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="20dp"
+                android:background="@android:color/darker_gray" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/comp3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Compétence 3"
+                android:outlineAmbientShadowColor="@color/colorPrimary"
+                app:met_floatingLabel="normal" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/desc_comp3"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:layout_marginTop="10dp"
+                android:hint="Description"
+                android:outlineAmbientShadowColor="@color/colorPrimary"
+                app:met_floatingLabel="normal" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Valider"
+                android:id="@+id/btn_valider"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/white"
+                android:background="@color/colorAccent"
+                />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

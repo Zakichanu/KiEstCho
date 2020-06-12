@@ -5,5 +5,7 @@
     <item
         android:id="@+id/deconnexion"
         android:title="Déconnexion"
-        app:showAsAction="never"/>
+        android:icon="@drawable/ic_settings_power_black_24dp"
+        app:showAsAction="ifRoom"
+        />
 </menu>

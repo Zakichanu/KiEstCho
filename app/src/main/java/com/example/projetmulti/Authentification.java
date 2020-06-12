@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -52,7 +54,9 @@ public class Authentification extends AppCompatActivity {
 
         btn_inscription = findViewById(R.id.inscription);
         email = findViewById(R.id.mail);
+        email.setTextColor(Color.WHITE);
         mdp = findViewById(R.id.mdp);
+        mdp.setTextColor(Color.WHITE);
         btn_auth = findViewById(R.id.btn_connexion);
 
         auth = FirebaseAuth.getInstance();
@@ -72,12 +76,13 @@ public class Authentification extends AppCompatActivity {
 
         btn_auth.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(final View v) {
                 String txt_email = email.getText().toString();
                 String txt_mdp = mdp.getText().toString();
 
                 if(TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_mdp)){
-                    Toast.makeText(Authentification.this, "Tous les champs doivent être rempli", Toast.LENGTH_SHORT).show();
+                    Snackbar.make(v, "Tous les champs doivent être rempli", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
                 } else{
                     auth.signInWithEmailAndPassword(txt_email, txt_mdp).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
@@ -88,7 +93,8 @@ public class Authentification extends AppCompatActivity {
                                 startActivity(intent);
                                 finish();
                             }else{
-                                Toast.makeText(Authentification.this, "Problème d'authentification", Toast.LENGTH_SHORT).show();
+                                Snackbar.make(v, "Problème d'authentification", Snackbar.LENGTH_LONG)
+                                        .setAction("Action", null).show();
                             }
                         }
                     });

@@ -77,7 +77,7 @@ public class Inscription extends AppCompatActivity {
     }
 
 
-    private void inscription(String prenom, final String pseudo, String email, String mdp, String cmdp){
+    private void inscription(final String prenom, final String pseudo, final String email, final String mdp, final String cmdp){
         auth.createUserWithEmailAndPassword(email, mdp)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -87,12 +87,23 @@ public class Inscription extends AppCompatActivity {
                             assert firebaseUser != null;
                             String pseudo_id = firebaseUser.getUid();
 
-                            reference = FirebaseDatabase.getInstance().getReference("Pseudos").child(pseudo_id);
+                            reference = FirebaseDatabase.getInstance().getReference("Utilisateurs").child(pseudo_id);
 
                             HashMap<String, String> hashMap = new HashMap<>();
                             hashMap.put("id", pseudo_id);
+                            hashMap.put("prenom", prenom);
                             hashMap.put("pseudo", pseudo);
+                            hashMap.put("mail", email);
+                            hashMap.put("mdp", mdp);
+                            hashMap.put("infopers", "");
+                            hashMap.put("comp1", "");
+                            hashMap.put("desc_comp1", "");
+                            hashMap.put("comp2", "");
+                            hashMap.put("desc_comp2", "");
+                            hashMap.put("comp3", "");
+                            hashMap.put("desc_comp3", "");
                             hashMap.put("imageURL", "default");
+
 
                             reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
