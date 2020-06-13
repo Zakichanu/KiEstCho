@@ -14,9 +14,11 @@ public class Utilisateur {
     private String comp3;
     private String desc_comp3;
     private String imageURL;
+    private String status;
 
     public Utilisateur(String id, String pseudo, String imageURL, String prenom, String mail, String mdp, String infopers,
-                       String comp1, String desc_comp1, String comp2, String desc_comp2, String comp3, String desc_comp3) {
+                       String comp1, String desc_comp1, String comp2, String desc_comp2, String comp3, String desc_comp3,
+                       String status) {
         this.id = id;
         this.prenom = prenom;
         this.pseudo = pseudo;
@@ -30,10 +32,19 @@ public class Utilisateur {
         this.comp3 = comp3;
         this.desc_comp3 = desc_comp3;
         this.imageURL = imageURL;
+        this.status = status;
     }
 
     public Utilisateur() {
 
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getMail() {

@@ -15,11 +15,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.projetmulti.Fragements.ChatFragment;
+import com.example.projetmulti.Fragements.ChatsFragment;
+import com.example.projetmulti.Fragements.UtilisateurFragment;
 import com.example.projetmulti.Modele.Utilisateur;
+import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -29,6 +32,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -86,13 +90,18 @@ public class Accueil_test extends AppCompatActivity {
             }
         });
 
+
+        TabLayout tableLayout = findViewById(R.id.tab_layout);
         ViewPager viewPager = findViewById(R.id.view_pager);
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
 
-        viewPagerAdapter.addFragment(new ChatFragment(), "Chat");
+        viewPagerAdapter.addFragment(new ChatsFragment(), "Chats");
+        viewPagerAdapter.addFragment(new UtilisateurFragment(), "Utilisateurs");
 
         viewPager.setAdapter(viewPagerAdapter);
+
+        tableLayout.setupWithViewPager(viewPager);
 
     }
 
@@ -108,8 +117,7 @@ public class Accueil_test extends AppCompatActivity {
             case R.id.deconnexion:
 
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(Accueil_test.this, Authentification.class));
-                finish();
+                startActivity(new Intent(Accueil_test.this, Authentification.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                 return true;
         }
         return false;
@@ -149,4 +157,23 @@ public class Accueil_test extends AppCompatActivity {
         }
     }
 
+    private void statusUtilisateur(String status){
+        reference = FirebaseDatabase.getInstance().getReference("Utilisateurs").child(useractuel.getUid());
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("status", status);
+
+        reference.updateChildren(hashMap);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        statusUtilisateur("en ligne");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        statusUtilisateur("hors-ligne");
+    }
 }

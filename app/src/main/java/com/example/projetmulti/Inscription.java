@@ -102,6 +102,7 @@ public class Inscription extends AppCompatActivity {
                             hashMap.put("desc_comp2", "");
                             hashMap.put("comp3", "");
                             hashMap.put("desc_comp3", "");
+                            hashMap.put("status", "hors-ligne");
                             hashMap.put("imageURL", "default");
 
 

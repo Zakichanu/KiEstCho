@@ -59,7 +59,7 @@ public class MesParametres extends AppCompatActivity {
                 if (utilisateur.getImageURL().equals("default")){
                     pdp.setImageResource(R.drawable.images);
                 }else{
-                    Glide.with(MesParametres.this).load(utilisateur.getImageURL()).into(pdp);
+                    Glide.with(getApplicationContext()).load(utilisateur.getImageURL()).into(pdp);
                 }
             }
 

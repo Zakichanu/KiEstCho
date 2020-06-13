@@ -79,6 +79,13 @@ public class Parametre_Profil extends AppCompatActivity {
                 } else {
                     Glide.with(Parametre_Profil.this).load(utilisateur.getImageURL()).into(pdp);
                 }
+                infoperso.setText(utilisateur.getInfopers());
+                comp1.setText(utilisateur.getComp1());
+                desc_comp1.setText(utilisateur.getDesc_comp1());
+                comp2.setText(utilisateur.getComp2());
+                desc_comp2.setText(utilisateur.getDesc_comp2());
+                comp3.setText(utilisateur.getComp3());
+                desc_comp3.setText(utilisateur.getDesc_comp3());
             }
 
             @Override
@@ -117,12 +124,7 @@ public class Parametre_Profil extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             Utilisateur utilisateur = dataSnapshot.getValue(Utilisateur.class);
-                            HashMap<String, String> hashMap = new HashMap<>();
-                            hashMap.put("id", utilisateur.getId());
-                            hashMap.put("prenom", utilisateur.getPrenom());
-                            hashMap.put("pseudo", utilisateur.getPseudo());
-                            hashMap.put("mail", utilisateur.getEmail());
-                            hashMap.put("mdp", utilisateur.getMdp());
+                            HashMap<String, Object> hashMap = new HashMap<>();
                             hashMap.put("infopers", txt_infoperso);
                             hashMap.put("comp1", txt_comp1);
                             hashMap.put("desc_comp1", txt_desc_comp1);
@@ -130,17 +132,10 @@ public class Parametre_Profil extends AppCompatActivity {
                             hashMap.put("desc_comp2", txt_desc_comp2);
                             hashMap.put("comp3", txt_comp3);
                             hashMap.put("desc_comp3", txt_desc_comp3);
-                            hashMap.put("imageURL", utilisateur.getImageURL());
-                            reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful()) {
-                                        Intent intent = new Intent(Parametre_Profil.this, MonProfil.class);
-                                        startActivity(intent);
-                                        finish();
-                                    }
-                                }
-                            });
+                            reference.updateChildren(hashMap);
+                            Intent intent = new Intent(Parametre_Profil.this, MonProfil.class);
+                            startActivity(intent);
+                            finish();
 
                         }
 
