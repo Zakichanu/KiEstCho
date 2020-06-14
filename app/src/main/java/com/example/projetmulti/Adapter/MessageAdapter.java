@@ -59,6 +59,16 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
         }else{
             Glide.with(mContext).load(imageurl).into(holder.pdp);
         }
+
+        if(position ==  mChat.size()-1){
+            if(chat.isVu()){
+                holder.txt_vu.setText("Vu");
+            } else{
+                holder.txt_vu.setText("Distribué");
+            }
+        } else{
+            holder.txt_vu.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -71,10 +81,13 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
         public TextView message_afficher;
         public ImageView pdp;
 
+        public TextView txt_vu;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             message_afficher = itemView.findViewById(R.id.message_afficher);
             pdp = itemView.findViewById(R.id.pdp);
+            txt_vu = itemView.findViewById(R.id.txt_vu);
         }
     }
 

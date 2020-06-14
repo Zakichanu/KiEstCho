@@ -125,7 +125,7 @@ public class MonProfil extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MonProfil.this, MesParametres.class);
+                Intent intent = new Intent(MonProfil.this, Parametre_Profil.class);
                 startActivity(intent);
 
             }

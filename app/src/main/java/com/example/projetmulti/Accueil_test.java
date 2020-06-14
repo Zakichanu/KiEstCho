@@ -72,7 +72,7 @@ public class Accueil_test extends AppCompatActivity {
                 if (utilisateur.getImageURL().equals("default")){
                     pdp.setImageResource(R.drawable.images);
                 }else{
-                    Glide.with(Accueil_test.this).load(utilisateur.getImageURL()).into(pdp);
+                    Glide.with(getApplicationContext()).load(utilisateur.getImageURL()).into(pdp);
                 }
             }
 

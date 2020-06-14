@@ -15,9 +15,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.projetmulti.Accueil_test;
 import com.example.projetmulti.Conversation;
+import com.example.projetmulti.Modele.Chat;
 import com.example.projetmulti.Modele.Utilisateur;
 import com.example.projetmulti.ProfilAutreUtilisateur;
 import com.example.projetmulti.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
@@ -25,6 +33,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     private Context mContext;
     private List<Utilisateur> mUtilisateurs;
     private boolean ischat;
+    private String derniermessage;
 
 
     public UserAdapter(Context mContext, List<Utilisateur> mUtilisateurs, boolean ischat){
@@ -48,6 +57,13 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
             holder.pdp.setImageResource(R.drawable.images);
         }else{
             Glide.with(mContext).load(utilisateur.getImageURL()).into(holder.pdp);
+        }
+
+        // Appel de la méthode
+        if (ischat){
+            dernierMessage(utilisateur.getId(), holder.dernier_message);
+        } else {
+            holder.dernier_message.setVisibility(View.GONE);
         }
 
         if (ischat){
@@ -89,8 +105,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
         public TextView pseudonyme;
         public ImageView pdp;
-        public ImageView online;
-        public ImageView offline;
+        private ImageView online;
+        private ImageView offline;
+        private TextView dernier_message;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -98,6 +115,36 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
             pdp = itemView.findViewById(R.id.pdp);
             online = itemView.findViewById(R.id.online);
             offline = itemView.findViewById(R.id.offline);
+            dernier_message = itemView.findViewById(R.id.dernier_message);
         }
+    }
+
+    // Récuperation du dernier message
+    private void dernierMessage(final String id_utilisateur, final TextView dernier_message){
+        derniermessage = "Pas de message avec cette personne";
+        final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Chats");
+
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    Chat chat = snapshot.getValue(Chat.class);
+                    if(chat.getDestinataire().equals(firebaseUser.getUid()) && chat.getExpediteur().equals(id_utilisateur)
+                     || chat.getDestinataire().equals(id_utilisateur) && chat.getExpediteur().equals(firebaseUser.getUid())){
+                        derniermessage = chat.getMessage();
+                    }
+                }
+                dernier_message.setText(derniermessage);
+            }
+
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
     }
 }

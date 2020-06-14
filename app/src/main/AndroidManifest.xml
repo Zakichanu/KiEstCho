@@ -17,9 +17,6 @@
         <activity android:name=".Conversation" />
         <activity android:name=".Parametre_Profil" />
         <activity
-            android:name=".MesParametres"
-            android:label="@string/title_activity_mes_parametres" />
-        <activity
             android:name=".MonProfil"
             android:label="@string/title_activity_profil"
             android:theme="@style/AppTheme.NoActionBar" />

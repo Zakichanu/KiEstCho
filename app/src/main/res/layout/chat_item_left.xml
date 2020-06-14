@@ -25,5 +25,12 @@
             android:text="hello"
             android:textColor="@color/white"
             android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txt_vu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_below="@id/message_afficher" />
     </RelativeLayout>
 </RelativeLayout>

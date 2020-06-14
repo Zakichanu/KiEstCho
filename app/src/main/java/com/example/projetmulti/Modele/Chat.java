@@ -4,11 +4,13 @@ public class Chat {
     private String expediteur;
     private String destinataire;
     private String message;
+    private boolean vu;
 
-    public Chat(String expediteur, String destinataire, String message) {
+    public Chat(String expediteur, String destinataire, String message, boolean vu) {
         this.expediteur = expediteur;
         this.destinataire = destinataire;
         this.message = message;
+        this.vu = vu;
     }
 
     public Chat(){
@@ -37,5 +39,13 @@ public class Chat {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public boolean isVu() {
+        return vu;
+    }
+
+    public void setVu(boolean vu) {
+        this.vu = vu;
     }
 }

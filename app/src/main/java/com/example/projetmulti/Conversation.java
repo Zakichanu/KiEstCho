@@ -53,6 +53,8 @@ public class Conversation extends AppCompatActivity {
 
     Intent intent;
 
+    ValueEventListener messagevu;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,9 +109,33 @@ public class Conversation extends AppCompatActivity {
                 if (utilisateur.getImageURL().equals("default")){
                     pdp.setImageResource(R.drawable.images);
                 }else{
-                    Glide.with(Conversation.this).load(utilisateur.getImageURL()).into(pdp);
+                    Glide.with(getApplicationContext()).load(utilisateur.getImageURL()).into(pdp);
                 }
                 lectureMessage(fuser.getUid(), id_utilisateur, utilisateur.getImageURL());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        Messagevu(id_utilisateur);
+    }
+
+    private void Messagevu(final String id_utilisateur){
+        reference = FirebaseDatabase.getInstance().getReference("Chats");
+        messagevu = reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Chat chat = snapshot.getValue(Chat.class);
+                    if(chat.getDestinataire().equals(fuser.getUid()) && chat.getExpediteur().equals(id_utilisateur)){
+                        HashMap<String, Object> hashMap = new HashMap<>();
+                        hashMap.put("vu", true);
+                        snapshot.getRef().updateChildren(hashMap);
+
+                    }
+                }
             }
 
             @Override
@@ -126,6 +152,7 @@ public class Conversation extends AppCompatActivity {
         hashMap.put("expediteur", expediteur);
         hashMap.put("destinataire", destinataire);
         hashMap.put("message", message);
+        hashMap.put("vu", false);
 
         reference.child("Chats").push().setValue(hashMap);
     }
@@ -173,6 +200,7 @@ public class Conversation extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
+        reference.removeEventListener(messagevu);
         statusUtilisateur("hors-ligne");
     }
 }

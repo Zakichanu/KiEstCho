@@ -19,7 +19,7 @@
         android:layout_toEndOf="@+id/pdp"
         android:layout_marginLeft="10dp"
         android:layout_centerVertical="true"
-        android:textSize="10sp"
+        android:textSize="15sp"
         android:id="@+id/pseudonyme"/>
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -49,5 +49,18 @@
         android:layout_marginLeft="-15dp"
         android:layout_toRightOf="@id/pdp"
         android:layout_toEndOf="@id/pdp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pseudonyme"
+        android:layout_toRightOf="@+id/pdp"
+        android:layout_marginTop="10dp"
+        android:paddingTop="10dp"
+        android:id="@+id/dernier_message"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginLeft="20dp"
+        android:maxLines="1"
+        />
 
 </RelativeLayout>
