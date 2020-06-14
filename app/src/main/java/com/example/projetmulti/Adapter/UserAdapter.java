@@ -123,28 +123,29 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     private void dernierMessage(final String id_utilisateur, final TextView dernier_message){
         derniermessage = "Pas de message avec cette personne";
         final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Chats");
-
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    Chat chat = snapshot.getValue(Chat.class);
-                    if(chat.getDestinataire().equals(firebaseUser.getUid()) && chat.getExpediteur().equals(id_utilisateur)
-                     || chat.getDestinataire().equals(id_utilisateur) && chat.getExpediteur().equals(firebaseUser.getUid())){
-                        derniermessage = chat.getMessage();
+        if(firebaseUser != null){
+            DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Chats");
+            reference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                        Chat chat = snapshot.getValue(Chat.class);
+                        if(chat.getDestinataire().equals(firebaseUser.getUid()) && chat.getExpediteur().equals(id_utilisateur)
+                                || chat.getDestinataire().equals(id_utilisateur) && chat.getExpediteur().equals(firebaseUser.getUid())){
+                            derniermessage = chat.getMessage();
+                        }
                     }
+                    dernier_message.setText(derniermessage);
                 }
-                dernier_message.setText(derniermessage);
-            }
 
 
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            }
-        });
+                }
+            });
+        }
 
     }
 }

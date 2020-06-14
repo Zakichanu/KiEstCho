@@ -70,7 +70,6 @@ public class Authentification extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Authentification.this, Inscription.class);
                 startActivity(intent);
-                finish();
             }
         });
 

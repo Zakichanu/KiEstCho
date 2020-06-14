@@ -115,9 +115,10 @@ public class Accueil_test extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.deconnexion:
-
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(Accueil_test.this, Authentification.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                Intent intent = new Intent(Accueil_test.this, Authentification.class);
+                startActivity(intent);
+                finish();
                 return true;
         }
         return false;
