@@ -43,6 +43,7 @@
                 android:outlineAmbientShadowColor="@color/colorPrimary"
                 android:textColor="@color/white"
                 app:met_floatingLabel="normal"
+                app:met_textColor="@color/white"
                 app:met_textColorHint="#FFFFFF"
                 app:met_underlineColor="#3F51B5" />
 
@@ -56,6 +57,7 @@
                 android:outlineAmbientShadowColor="@color/colorPrimary"
                 android:textColor="@color/white"
                 app:met_floatingLabel="normal"
+                app:met_textColor="@color/white"
                 app:met_textColorHint="#FFFFFF"
                 app:met_underlineColor="#3F51B5" />
 
@@ -65,6 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:hint="Pseudo"
+                app:met_textColor="@color/white"
                 android:outlineAmbientShadowColor="@color/colorPrimary"
                 android:textColor="@color/white"
                 app:met_floatingLabel="normal"
@@ -78,6 +81,7 @@
                 android:layout_marginTop="10dp"
                 android:hint="Mot de passe"
                 android:inputType="textPassword"
+                app:met_textColor="@color/white"
                 android:outlineAmbientShadowColor="@color/colorPrimary"
                 android:textColor="@color/white"
                 app:met_floatingLabel="normal"
@@ -93,6 +97,7 @@
                 android:inputType="textPassword"
                 android:outlineAmbientShadowColor="@color/colorPrimary"
                 android:textColor="@color/white"
+                app:met_textColor="@color/white"
                 app:met_floatingLabel="normal"
                 app:met_textColorHint="#FFFFFF"
                 app:met_underlineColor="#3F51B5" />

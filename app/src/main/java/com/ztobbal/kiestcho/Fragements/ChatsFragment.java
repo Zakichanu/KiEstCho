@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.ztobbal.kiestcho.Adapter.UserAdapter;
 import com.ztobbal.kiestcho.Modele.Chat;
+import com.ztobbal.kiestcho.Modele.Liste_Chat;
 import com.ztobbal.kiestcho.Modele.Utilisateur;
 import com.ztobbal.kiestcho.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -35,7 +36,9 @@ public class ChatsFragment extends Fragment {
     FirebaseUser fuser;
     DatabaseReference reference;
 
-    private List<String> Listutilisateurs;
+    private List<Liste_Chat> Listutilisateurs;
+
+
 
 
     @Override
@@ -50,22 +53,17 @@ public class ChatsFragment extends Fragment {
         fuser = FirebaseAuth.getInstance().getCurrentUser();
 
         Listutilisateurs = new ArrayList<>();
-
-        reference = FirebaseDatabase.getInstance().getReference("Chats");
+        reference = FirebaseDatabase.getInstance().getReference("Liste_Chat").child(fuser.getUid());
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Listutilisateurs.clear();
-                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    Chat chat = snapshot.getValue(Chat.class);
-                    if(chat.getExpediteur().equals(fuser.getUid())){
-                        Listutilisateurs.add(chat.getDestinataire());
-                    }
-                    if(chat.getDestinataire().equals(fuser.getUid())){
-                        Listutilisateurs.add(chat.getExpediteur());
-                    }
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    Liste_Chat chatliste = snapshot.getValue(Liste_Chat.class);
+                    Listutilisateurs.add(chatliste);
                 }
-                lectureChats();
+
+                Listechat();
             }
 
             @Override
@@ -74,33 +72,22 @@ public class ChatsFragment extends Fragment {
             }
         });
 
+
         return view;
     }
 
-    private void lectureChats(){
+    private void Listechat() {
         mUtilisateurs = new ArrayList<>();
-
         reference = FirebaseDatabase.getInstance().getReference("Utilisateurs");
-
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 mUtilisateurs.clear();
-
-                // Affiche Un utilisateur dans la liste
-                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                     Utilisateur utilisateur = snapshot.getValue(Utilisateur.class);
-                    for(String id : Listutilisateurs){
-                        if (utilisateur.getId().equals(id)){
-                            if(mUtilisateurs.size() != 0){
-                                for(Utilisateur utilisateur1 : mUtilisateurs){
-                                    if(!utilisateur.getId().equals(utilisateur1.getId())){
-                                        mUtilisateurs.add(utilisateur);
-                                    }
-                                }
-                            }else{
-                                mUtilisateurs.add(utilisateur);
-                            }
+                    for (Liste_Chat liste_chat : Listutilisateurs){
+                        if(utilisateur.getId().equals(liste_chat.getId())){
+                            mUtilisateurs.add(utilisateur);
                         }
                     }
                 }
@@ -114,4 +101,6 @@ public class ChatsFragment extends Fragment {
             }
         });
     }
+
+
 }

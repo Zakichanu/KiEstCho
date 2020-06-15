@@ -47,6 +47,7 @@ public class Conversation extends AppCompatActivity {
 
     private FirebaseUser fuser;
     private DatabaseReference reference;
+    private String id_utilisateur;
 
     Intent intent;
 
@@ -77,7 +78,7 @@ public class Conversation extends AppCompatActivity {
 
         //Récuperation des infos du user sélectionné
         intent = getIntent();
-        final String id_utilisateur = intent.getStringExtra("id_utilisateur");
+        id_utilisateur = intent.getStringExtra("id_utilisateur");
 
         fuser = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -152,6 +153,25 @@ public class Conversation extends AppCompatActivity {
         hashMap.put("vu", false);
 
         reference.child("Chats").push().setValue(hashMap);
+
+
+        // Ajout de l'utilisateur dans le fragment chat
+        final DatabaseReference chatReference = FirebaseDatabase.getInstance().getReference("Liste_Chat").child(fuser.getUid())
+                .child(id_utilisateur);
+
+        chatReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(!dataSnapshot.exists()){
+                    chatReference.child("id").setValue(id_utilisateur);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     private void lectureMessage(final String monID, final String id_utilisateur, final String imageurl){
