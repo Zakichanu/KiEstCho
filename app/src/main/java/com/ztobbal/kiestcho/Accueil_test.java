@@ -1,4 +1,4 @@
-package com.example.projetmulti;
+package com.ztobbal.kiestcho;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,13 +15,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.projetmulti.Fragements.ChatsFragment;
-import com.example.projetmulti.Fragements.UtilisateurFragment;
-import com.example.projetmulti.Modele.Utilisateur;
+import com.ztobbal.kiestcho.Fragements.ChatsFragment;
+import com.ztobbal.kiestcho.Fragements.UtilisateurFragment;
+import com.ztobbal.kiestcho.Modele.Utilisateur;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

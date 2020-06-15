@@ -1,4 +1,4 @@
-package com.example.projetmulti.Modele;
+package com.ztobbal.kiestcho.Modele;
 
 public class Utilisateur {
     private String id;

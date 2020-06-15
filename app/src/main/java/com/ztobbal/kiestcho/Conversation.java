@@ -1,4 +1,4 @@
-package com.example.projetmulti;
+package com.ztobbal.kiestcho;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,19 +7,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.util.Util;
-import com.example.projetmulti.Adapter.MessageAdapter;
-import com.example.projetmulti.Modele.Chat;
-import com.example.projetmulti.Modele.Utilisateur;
+import com.ztobbal.kiestcho.Adapter.MessageAdapter;
+import com.ztobbal.kiestcho.Modele.Chat;
+import com.ztobbal.kiestcho.Modele.Utilisateur;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

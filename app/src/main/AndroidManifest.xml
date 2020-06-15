@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.projetmulti">
+    package="com.ztobbal.kiestcho">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -12,17 +12,17 @@
         android:label="KiEstCho"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ProfilAutreUtilisateur"></activity>
-        <activity android:name=".Conversation" />
-        <activity android:name=".Parametre_Profil" />
+        <activity android:name="com.ztobbal.kiestcho.ProfilAutreUtilisateur"></activity>
+        <activity android:name="com.ztobbal.kiestcho.Conversation" />
+        <activity android:name="com.ztobbal.kiestcho.Parametre_Profil" />
         <activity
-            android:name=".MonProfil"
+            android:name="com.ztobbal.kiestcho.MonProfil"
             android:label="@string/title_activity_profil"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Accueil_test" />
-        <activity android:name=".Accueil" />
-        <activity android:name=".Inscription" />
-        <activity android:name=".Authentification">
+        <activity android:name="com.ztobbal.kiestcho.Accueil_test" />
+        <activity android:name="com.ztobbal.kiestcho.Accueil" />
+        <activity android:name="com.ztobbal.kiestcho.Inscription" />
+        <activity android:name="com.ztobbal.kiestcho.Authentification">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

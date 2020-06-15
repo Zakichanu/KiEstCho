@@ -1,4 +1,4 @@
-package com.example.projetmulti;
+package com.ztobbal.kiestcho;
 
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
@@ -7,7 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import com.bumptech.glide.Glide;
-import com.example.projetmulti.Modele.Utilisateur;
+import com.ztobbal.kiestcho.Modele.Utilisateur;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;

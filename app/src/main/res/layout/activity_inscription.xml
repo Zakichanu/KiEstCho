@@ -1,107 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Inscription"
-    android:background="@color/black">
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar"/>
+    android:background="@color/black"
+    tools:context=".Inscription">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:layout_below="@+id/toolbar"
-        android:padding="16dp"
         android:layout_height="wrap_content"
-        android:background="@color/black">
+        android:orientation="vertical">
 
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Créer votre compte"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/white"/>
-
-        <com.rengwuxian.materialedittext.MaterialEditText
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/prénom"
-            android:outlineAmbientShadowColor="@color/colorPrimary"
-            android:layout_marginTop="10dp"
-            app:met_floatingLabel="normal"
-            android:hint="Prénom"
-            android:textColor="@color/white"
-            app:met_textColorHint="#FFFFFF"
-            app:met_underlineColor="#3F51B5"
-            />
+            android:layout_below="@+id/toolbar"
+            android:background="@color/black"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/mail"
-            android:outlineAmbientShadowColor="@color/colorPrimary"
-            android:inputType="textEmailAddress"
-            android:layout_marginTop="10dp"
-            app:met_floatingLabel="normal"
-            android:hint="E-mail"
-            android:textColor="@color/white"
-            app:met_textColorHint="#FFFFFF"
-            app:met_underlineColor="#3F51B5"
-            />
 
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/pseudo"
-            android:outlineAmbientShadowColor="@color/colorPrimary"
-            android:layout_marginTop="10dp"
-            app:met_floatingLabel="normal"
-            android:hint="Pseudo"
-            android:textColor="@color/white"
-            app:met_textColorHint="#FFFFFF"
-            app:met_underlineColor="#3F51B5"
-            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Créer votre compte"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/mdp"
-            android:outlineAmbientShadowColor="@color/colorPrimary"
-            android:inputType="textPassword"
-            android:layout_marginTop="10dp"
-            app:met_floatingLabel="normal"
-            android:hint="Mot de passe"
-            android:textColor="@color/white"
-            app:met_textColorHint="#FFFFFF"
-            app:met_underlineColor="#3F51B5"
-            />
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/prénom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Prénom"
+                android:outlineAmbientShadowColor="@color/colorPrimary"
+                android:textColor="@color/white"
+                app:met_floatingLabel="normal"
+                app:met_textColorHint="#FFFFFF"
+                app:met_underlineColor="#3F51B5" />
 
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/cmdp"
-            android:outlineAmbientShadowColor="@color/colorPrimary"
-            android:inputType="textPassword"
-            android:layout_marginTop="10dp"
-            app:met_floatingLabel="normal"
-            android:hint="Confirmer votre mot de passe"
-            android:textColor="@color/white"
-            app:met_textColorHint="#FFFFFF"
-            app:met_underlineColor="#3F51B5"/>
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/mail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="E-mail"
+                android:inputType="textEmailAddress"
+                android:outlineAmbientShadowColor="@color/colorPrimary"
+                android:textColor="@color/white"
+                app:met_floatingLabel="normal"
+                app:met_textColorHint="#FFFFFF"
+                app:met_underlineColor="#3F51B5" />
 
-        <Button
-            android:id="@+id/btn_inscription"
-            android:layout_width="175dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/custom_button"
-            android:text="S'inscrire"
-            android:textColor="@color/colorPrimaryDark" />
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/pseudo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Pseudo"
+                android:outlineAmbientShadowColor="@color/colorPrimary"
+                android:textColor="@color/white"
+                app:met_floatingLabel="normal"
+                app:met_textColorHint="#FFFFFF"
+                app:met_underlineColor="#3F51B5" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/mdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Mot de passe"
+                android:inputType="textPassword"
+                android:outlineAmbientShadowColor="@color/colorPrimary"
+                android:textColor="@color/white"
+                app:met_floatingLabel="normal"
+                app:met_textColorHint="#FFFFFF"
+                app:met_underlineColor="#3F51B5" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/cmdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Confirmer votre mot de passe"
+                android:inputType="textPassword"
+                android:outlineAmbientShadowColor="@color/colorPrimary"
+                android:textColor="@color/white"
+                app:met_floatingLabel="normal"
+                app:met_textColorHint="#FFFFFF"
+                app:met_underlineColor="#3F51B5" />
+
+            <Button
+                android:id="@+id/btn_inscription"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/custom_button"
+                android:text="S'inscrire"
+                android:textColor="@color/colorPrimaryDark" />
+        </LinearLayout>
     </LinearLayout>
-</RelativeLayout>
+</ScrollView>

@@ -1,7 +1,6 @@
-package com.example.projetmulti.Adapter;
+package com.ztobbal.kiestcho.Adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,10 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.projetmulti.Conversation;
-import com.example.projetmulti.Modele.Chat;
-import com.example.projetmulti.Modele.Utilisateur;
-import com.example.projetmulti.R;
+import com.ztobbal.kiestcho.Modele.Chat;
+import com.ztobbal.kiestcho.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 

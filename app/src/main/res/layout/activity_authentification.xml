@@ -1,92 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Authentification">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
-
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="675dp"
-        android:layout_below="@+id/toolbar"
-        android:background="@color/black"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:textColor="#FFFFFF">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/logo"
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar" />
+
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_alignParentTop="true"
+            android:layout_height="675dp"
+            android:layout_below="@+id/toolbar"
             android:background="@color/black"
-            android:outlineAmbientShadowColor="@color/black"
-            app:srcCompat="@drawable/logo" />
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:textColor="#FFFFFF">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_alignParentTop="true"
+                android:background="@color/black"
+                android:outlineAmbientShadowColor="@color/black"
+                app:srcCompat="@drawable/logo" />
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Connectez-vous"
-            android:textColor="@color/white"
-            android:textColorHighlight="#FFFFFF"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Connectez-vous"
+                android:textColor="@color/white"
+                android:textColorHighlight="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/mail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:drawableLeft="@drawable/ic_username"
-            android:hint="Email"
-            android:includeFontPadding="true"
-            android:inputType="text"
-            android:textColor="@color/white"
-            app:met_floatingLabel="normal"
-            app:met_textColorHint="#FFFFFF"
-            app:met_underlineColor="#3F51B5" />
-
-
-        <com.rengwuxian.materialedittext.MaterialEditText
-
-            android:id="@+id/mdp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:drawableLeft="@drawable/ic_password"
-            android:hint="Mot de passe"
-            android:includeFontPadding="true"
-            android:inputType="textPassword"
-            android:textColor="@color/white"
-            app:met_floatingLabel="normal"
-            app:met_textColorHint="#FFFFFF"
-            app:met_underlineColor="#3F51B5" />
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/mail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/ic_username"
+                android:hint="Email"
+                android:includeFontPadding="true"
+                android:inputType="text"
+                android:textColor="@color/white"
+                app:met_floatingLabel="normal"
+                app:met_textColorHint="#FFFFFF"
+                app:met_underlineColor="#3F51B5" />
 
 
-        <Button
-            android:id="@+id/btn_connexion"
-            android:layout_width="175dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/scndcustom_button"
-            android:text="Connexion"
-            android:textColor="@color/blue" />
+            <com.rengwuxian.materialedittext.MaterialEditText
 
-        <Button
-            android:id="@+id/inscription"
-            android:layout_width="175dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/custom_button"
-            android:text="Inscription"
-            android:textColor="@color/colorPrimaryDark" />
+                android:id="@+id/mdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/ic_password"
+                android:hint="Mot de passe"
+                android:includeFontPadding="true"
+                android:inputType="textPassword"
+                android:textColor="@color/white"
+                app:met_floatingLabel="normal"
+                app:met_textColorHint="#FFFFFF"
+                app:met_underlineColor="#3F51B5" />
+
+
+            <Button
+                android:id="@+id/btn_connexion"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/scndcustom_button"
+                android:text="Connexion"
+                android:textColor="@color/blue" />
+
+            <Button
+                android:id="@+id/inscription"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/custom_button"
+                android:text="Inscription"
+                android:textColor="@color/colorPrimaryDark" />
+        </LinearLayout>
     </LinearLayout>
-</RelativeLayout>
+</ScrollView>

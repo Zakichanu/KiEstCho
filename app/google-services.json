@@ -8,12 +8,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:978681782731:android:86c0ecc1cb3df7bfd8964e",
+        "mobilesdk_app_id": "1:978681782731:android:70c98e3fcf9f7c0fd8964e",
         "android_client_info": {
-          "package_name": "com.example.projetmulti"
+          "package_name": "com.ztobbal.kiestcho"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "978681782731-368hvnrs0tsu2q38tmn412cii5vkvebe.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ztobbal.kiestcho",
+            "certificate_hash": "f173bd0c4f02002e713f496b5b515dfaaf0ff541"
+          }
+        },
         {
           "client_id": "978681782731-o1eq1dn45r5o529uqrhls3re1tbgtrho.apps.googleusercontent.com",
           "client_type": 3
