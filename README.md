@@ -1,0 +1,3 @@
+# KiEstCho
+
+Academic Project with my partner, just doing a chat app pretty basic...
